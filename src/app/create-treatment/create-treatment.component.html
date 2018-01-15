@@ -1,0 +1,10 @@
+<form [formGroup]="myForm" (ngSubmit)="createTreatment()">
+  <div class="form-group">
+    <label for="patientRequest">Enter your request</label>
+    <input type="text" id="patientRequest" name="patientRequest" class="form-control" formControlName="patientRequest">
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Create" class="btn btn-primary">
+  </div>
+</form>

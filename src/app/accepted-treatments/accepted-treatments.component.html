@@ -1,0 +1,20 @@
+<div class="row" style="margin-top: 10px;">
+  <div class="col-4 card">
+    <div *ngFor="let treatment of treatments" style="padding: 10px;">
+      <p>{{treatment.patientRequest}}</p>
+      <input type="button" class="btn btn-primary" (click)="detailsTreatment(treatment.id)" value="Details">
+    </div>
+  </div>
+
+
+  <div class="col-8" style="padding: 15px;">
+    <app-details-treatment *ngIf="selectedTreatment" [treatment]="selectedTreatment">
+    </app-details-treatment>
+  </div>
+</div>
+
+
+
+
+
+

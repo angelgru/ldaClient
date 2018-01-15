@@ -1,0 +1,53 @@
+<form [formGroup]="myForm" (ngSubmit)="setDiagnosis(treatment.id)">
+  <div class="form-group">
+    <label for="patientRequest">Patient Request:</label>
+    <input type="text" id="patientRequest" name="patientRequest" class="form-control" value="{{treatment.patientRequest}}" disabled>
+  </div>
+
+  <hr>
+  <h3>Patient details: </h3>
+  <div class="form-group">
+    <label for="name">Patient name:</label>
+    <input type="text" id="name" name="name" class="form-control" value="{{treatment.forPatient.name}}" disabled>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" value="{{treatment.forPatient.phoneNumber}}" disabled>
+  </div>
+  <div class="form-group">
+    <label for="emergencyPhone">Emergency phone number:</label>
+    <input type="text" id="emergencyPhone" name="emergencyPhone" class="form-control" value="{{treatment.forPatient.emergencyPhone}}" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="diagnosis">Diagnosis: </label>
+    <input type="text" id="diagnosis" name="diagnosis" class="form-control" formControlName="diagnosis" placeholder="Enter your diagnosis here">
+  </div>
+
+  <input type="submit" value="Set diagnosis" class="btn btn-primary">
+
+  <hr>
+  <h3>Sensors data</h3>
+  <br>
+  <br>
+  <div *ngFor="let sensor of treatment.forPatient.ownsSensors" class="card" style="padding: 20px;">
+    <h4>Sensor {{sensor.id}}</h4>
+    <p>Sensor type: {{sensor.type}}</p>
+    <p>Sensor unit: {{sensor.unit}}</p>
+    <p>Sensor regular values from: {{sensor.regularFrom}}</p>
+    <p>Sensor regular value to: {{sensor.regularTo}}</p>
+
+    <br>
+    <br>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Show Treatments</button>
+    Да додадаме на долниот div class="collapse"
+
+    <div class="" id="collapseExample">
+      <h4>Observations from sensor {{sensor.id}}</h4>
+      <div *ngFor="let observation of sensor.usedInObservations">
+        <p>Observation value: {{observation.val}}</p>
+        <p>Observation time: {{observation.time}}</p>
+      </div>
+    </div>
+  </div>
+</form>

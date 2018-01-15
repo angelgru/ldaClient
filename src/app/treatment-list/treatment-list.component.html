@@ -1,0 +1,11 @@
+<div class="card" *ngFor="let treatment of treatments">
+  <p>Patient request : {{treatment.patientRequest}}</p>
+  <input type="button" class="btn btn-primary" (click)="acceptTreatment(treatment.id)" value="Accept Treatment">
+</div>
+
+
+<div *ngIf="selectedTreatment">
+  <p>{{selectedTreatment.patientRequest}}</p>
+  <p>Patient info</p>
+  <p>{{selectedTreatment.forPatient.name}}</p>
+</div>

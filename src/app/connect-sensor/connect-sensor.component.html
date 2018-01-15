@@ -1,0 +1,31 @@
+<form [formGroup]="myForm" (ngSubmit)="connectSensor()">
+  <div class="form-group">
+    <label for="type">Select the type of the sensor: </label>
+    <select class="form-control" id="type" formControlName="stype">
+      <option value="Pulse">Pulse</option>
+      <option value="Temperature">Temperature</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="unit">Select the unit metrics</label>
+    <select class="form-control" id="unit" formControlName="unit">
+      <option value="bpm">bpm</option>
+      <option value="C">C</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="regularFrom">Regular From</label>
+    <input type="number" id="regularFrom" name="regularFrom" class="form-control" formControlName="regular_from">
+  </div>
+
+  <div class="form-group">
+    <label for="regularTo">Regular To</label>
+    <input type="number" id="regularTo" name="regularTo" class="form-control" formControlName="regular_to">
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Connect" class="btn btn-primary">
+  </div>
+</form>

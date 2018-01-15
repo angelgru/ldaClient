@@ -1,0 +1,19 @@
+<form class="card container" [formGroup]="myForm" (ngSubmit)="login()">
+  <div class="form-group">
+    <label for="email">Enter your email</label>
+    <input type="email" id="email" name="email" class="form-control" formControlName="email">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Enter your password</label>
+    <input type="password" id="password" name="password" class="form-control" formControlName="password">
+  </div>
+
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </div>
+</form>
+
+<div class="alert alert-danger" *ngIf="message">
+  {{message}}
+</div>

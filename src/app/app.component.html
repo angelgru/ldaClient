@@ -1,0 +1,41 @@
+<div class="container">
+  <app-login *ngIf="!loginService.isLoggedIn()">
+
+  </app-login>
+
+  <app-register *ngIf="!loginService.isLoggedIn()"></app-register>
+  <!--getIsDoctro removes everything for non doctors-->
+  <nav class="navbar navbar-default" *ngIf="loginService.getIsDoctor() == 'yes'">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">LDA</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Available treatments</a></li>
+        <li><a href="/accepted">Accepted Treatments</a></li>
+        <li><a >{{loginService.getUser()}}</a></li>
+        <li><a href="" (click)="loginService.logout()">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-default" *ngIf="loginService.getIsDoctor() == 'no'">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">LDA</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/patient/treatments">Treatments</a></li>
+        <li><a href="/sensor">Connect sensor</a></li>
+        <li><a href="/treatment">Create Treatment</a></li>
+        <li><a >{{loginService.getUser()}}</a></li>
+        <li><a href="" (click)="loginService.logout()">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div *ngIf="loginService.isLoggedIn()">
+    <router-outlet></router-outlet>
+  </div>
+</div>

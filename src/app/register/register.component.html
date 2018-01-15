@@ -1,0 +1,37 @@
+<div class="card container">
+  <form [formGroup]="myForm" (ngSubmit)="register()">
+    <div class="form-group">
+      <label for="email">Enter your email address</label><br>
+      <input type="email" id="email" name="email" class="form-control" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Enter your password</label>
+      <input type="password" id="password" name="password" class="form-control" formControlName="password">
+    </div>
+
+    <div class="form-group">
+      <label for="password_confirm">Confirm your password</label>
+      <input type="password" id="password_confirm" name="password_confirm" class="form-control" formControlName="password_confirm">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Enter your full name</label>
+      <input type="text" id="name" name="name" class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number">Enter your phone number</label>
+      <input type="text" id="phone_number" name="phone_number" class="form-control" formControlName="phone_number">
+    </div>
+
+    <div class="form-group">
+      <label for="emergency_phone_number">Enter your emergency phone number</label>
+      <input type="text" id="emergency_phone_number" name="emergency_phone_number" class="form-control" formControlName="emergency_phone_number">
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Register" class="btn btn-primary">
+    </div>
+  </form>
+</div>
